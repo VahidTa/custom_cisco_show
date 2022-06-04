@@ -2,6 +2,11 @@ import subprocess
 import sys
 
 
+FLAG = '\xf0\x9f\x87\xae\xf0\x9f\x87\xb7 ' # flag emoji.
+ROCKET = ' \xF0\x9F\x9A\x80 \n' # rocket emoji.
+CHECK = '\xE2\x9C\x85 ' # check emoji.
+EMOJI = '\xF0\x9F\x98\x83 \xF0\x9F\x98\x8D ' # smile and love emoji.
+
 def convert_bytes(size):
     "It converts bytes to KB, MB, etc"
     for x in ['bytes', 'KB', 'MB', 'GB', 'TB']:
@@ -42,8 +47,8 @@ in_data = output[input_index].split(',')[1].split()[0]
 out_data = output[output_index].split(',')[1].split()[0]
 
 
-print '\xf0\x9f\x87\xae\xf0\x9f\x87\xb7 \n'
+print '{}\n'.format(FLAG)
 
-print '\xE2\x9C\x85 ' + '\033[1minput data:\033[0m\t' + '\033[92m{}\033[0m'.format(convert_bytes(int(in_data))) + ' \xF0\x9F\x9A\x80 \n'
-print '\xE2\x9C\x85 ' + '\033[1moutput data:\033[0m\t' + '\033[92m{}\033[0m'.format(convert_bytes(int(out_data)))+ ' \xF0\x9F\x9A\x80 \n'
-print '\xF0\x9F\x98\x83' '\xF0\x9F\x98\x8D \n'
+print '{}'.format(CHECK) + '\033[1minput data:\033[0m\t' + '\033[92m{}\033[0m'.format(convert_bytes(int(in_data))) + ROCKET
+print '{}'.format(CHECK) + '\033[1moutput data:\033[0m\t' + '\033[92m{}\033[0m'.format(convert_bytes(int(out_data))) + ROCKET
+print '{}\n'.format(EMOJI)
